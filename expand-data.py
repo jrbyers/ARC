@@ -35,6 +35,7 @@ def expand_arc(directory_name):
                 # write the original problem
                 filename, extension = os.path.splitext(filename)
                 new_filename = f"{filename}_0.json"
+                data['test'] = data['test'][0]
 
                 destination_path = os.path.join(base_dest_dir, new_filename)
 
@@ -44,7 +45,7 @@ def expand_arc(directory_name):
 
 
                 train = copy.deepcopy(data['train'])
-                test = copy.deepcopy(data['test'][0])
+                test = copy.deepcopy(data['test'])
 
                 # swap the test with each task_demonstration example
                 for index, task_demonstration in enumerate(train):
